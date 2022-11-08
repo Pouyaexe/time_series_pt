@@ -6,5 +6,8 @@ from utils import ALL_LETTERS, N_LETTERS
 from utils import load_data, letter_to_tensor, line_to_tensor, random_training_example
 
 class RNN(nn.Module):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, input_size, hideen_size, output_size):
+        super(RNN, self).__init__()
+        
+        self.hidden_size = hidden_size
+        self.i2h = nn.Linear(input_size + hideen_size, hidden_size)
