@@ -28,3 +28,4 @@ class RNN(nn.Module):
     def init_hidden(self):
         return torch.zeros(1, self.hidden_size)
     
+category_lines, all_categories = load_data()
