@@ -13,3 +13,4 @@ class RNN(nn.Module):
         self.i2h = nn.Linear(input_size + hidden_size, hidden_size)
         self.i2h = nn.Linear(input_size + hidden_size, hidden_size)
         
+        
