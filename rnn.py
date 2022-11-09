@@ -44,3 +44,8 @@ print(next_hidden.size())
 
 # whole sequence/name
 input_tensor = line_to_tensor('Albert')
+
+
+output, next_hidden = rnn(input_tensor, hidden_tensor)
+print(output.size())
+print(next_hidden.size())
