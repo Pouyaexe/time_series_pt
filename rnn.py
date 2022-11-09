@@ -33,3 +33,11 @@ n_categories = len(all_categories)
 print(n_categories)
 n_hidden = 128
 rnn = RNN(N_LETTERS, n_hidden, n_categories)
+
+# one step
+input_tensor = letter_to_tensor('A')
+hidden_tensor = rnn.init_hidden()
+
+output, next_hidden = rnn(input_tensor, hidden_tensor)
+print(output.size())
+print(next_hidden.size())
