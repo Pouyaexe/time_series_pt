@@ -32,4 +32,4 @@ category_lines, all_categories = load_data()
 n_categories = len(all_categories)
 print(n_categories)
 
-rnn = RNN()
+rnn = RNN(N_LETTERS, n_hidden, )
