@@ -29,3 +29,5 @@ class RNN(nn.Module):
         return torch.zeros(1, self.hidden_size)
     
 category_lines, all_categories = load_data()
+n_categories = len(all_categories)
+print(n_categories)
