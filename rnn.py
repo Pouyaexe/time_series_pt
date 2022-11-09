@@ -50,3 +50,5 @@ output, next_hidden = rnn( input_tensor[0], hidden_tensor)
 print(output.size())
 print(next_hidden.size())
 
+
+
