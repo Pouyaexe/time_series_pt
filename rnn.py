@@ -46,7 +46,7 @@ print(next_hidden.size())
 input_tensor = line_to_tensor('Albert')
 hidden_tensor = rnn.init_hidden()
 
-output, next_hidden = rnn(input_tensor(0), hidden_tensor)
+output, next_hidden = rnn( input_tensor[0], hidden_tensor)
 print(output.size())
 print(next_hidden.size())
 
