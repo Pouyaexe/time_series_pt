@@ -51,3 +51,4 @@ sns.lineplot(x=input_doses, y=output_values, color='green', linewidth=2.5)
 
 plt.ylabel('Efc.')
 plt.xlabel('Dose')
+plt.show()
