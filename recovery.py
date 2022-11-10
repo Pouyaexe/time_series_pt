@@ -21,4 +21,4 @@ class BasicNN(nn.Module):
         self.final_bias = nn.Parameter(torch.tensor(-16), requires_grad=False)
         
     def forward(self, input):
-        input_to_top_relu = input*self.w00 +self.b00∏
+        input_to_top_relu = input*self.w00 +self.b00
