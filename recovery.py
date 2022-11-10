@@ -36,3 +36,6 @@ class BasicNN(nn.Module):
         output = F.relu(input_to_final_relu)
 
         return output
+
+
+input_doses = torch.linspace(start=0, end=1, steps=11)
