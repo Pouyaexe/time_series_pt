@@ -47,3 +47,4 @@ output_values = model(input_doses)
 print(output_values)
 
 sns.set(style="whitegrid")
+sns.lineplot(x=input_doses, y=output_values, color='green', linewidth=2.5)
