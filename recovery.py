@@ -18,4 +18,6 @@ class BasicNN(nn.Module):
         self.b10 = nn.Parameter(torch.tensor(0.0), requires_grad=False)
         self.w11 = nn.Parameter(torch.tensor(2.7), requires_grad=False)
         
-        self.final_bias = nn.Parameter(torch.tensor(-16))
+        self.final_bias = nn.Parameter(torch.tensor(-16), requires_grad=False)
+        
+        
