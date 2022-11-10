@@ -25,5 +25,9 @@ class BasicNN(nn.Module):
         top_relu_output = F.relu(input_to_top_relu)
         scaled_top_relu_output = top_relu_output * self.w01
         
+        input_to_top_relu = input*self.w00 +self.b00
+        top_relu_output = F.relu(input_to_top_relu)
+        scaled_top_relu_output = top_relu_output * self.w01
+        
 
         
