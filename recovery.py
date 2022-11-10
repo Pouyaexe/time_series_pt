@@ -41,3 +41,6 @@ class BasicNN(nn.Module):
 input_doses = torch.linspace(start=0, end=1, steps=11)
 
 model = BasicNN()
+
+output_values = model(input_doses)
+
