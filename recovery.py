@@ -43,10 +43,11 @@ input_doses = torch.linspace(start=0, end=1, steps=11)
 model = BasicNN()
 
 output_values = model(input_doses)
-
+print(output_values)
+print(output_values.detach())
 
 sns.set(style="whitegrid")
-sns.lineplot(x=input_doses, y=output_values, color='green', linewidth=2.5)
+sns.lineplot(x=input_doses, y=output_values.detach(), color='green', linewidth=2.5)
 
 plt.ylabel('Efc.')
 plt.xlabel('Dose')
