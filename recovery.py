@@ -45,3 +45,5 @@ model = BasicNN()
 output_values = model(input_doses)
 
 print(output_values)
+
+sns.set(style="whitegrid")
