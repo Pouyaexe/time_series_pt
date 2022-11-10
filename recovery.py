@@ -18,7 +18,7 @@ class BasicNN(nn.Module):
         self.b10 = nn.Parameter(torch.tensor(0.0), requires_grad=False)
         self.w11 = nn.Parameter(torch.tensor(2.7), requires_grad=False)
 
-        self.final_bias = nn.Parameter(torch.tensor(0.), requires_grad=True)
+        self.final_bias = nn.Parameter(torch.tensor(0.0), requires_grad=True)
 
     def forward(self, input):
         input_to_top_relu = input * self.w00 + self.b00
@@ -40,13 +40,16 @@ class BasicNN(nn.Module):
 
 input_doses = torch.linspace(start=0, end=1, steps=11)
 
+inputs = torch.tensor([0.0, 0.5, 1.0])
+labels = torch.tensor([0., 1., 0.])
+
 model = BasicNN()
 
 output_values = model(input_doses)
 
 sns.set(style="whitegrid")
-sns.lineplot(x=input_doses, y=output_values.detach(), color='green', linewidth=2.5)
+sns.lineplot(x=input_doses, y=output_values.detach(), color="green", linewidth=2.5)
 
-plt.ylabel('Efc.')
-plt.xlabel('Dose')
+plt.ylabel("Efc.")
+plt.xlabel("Dose")
 plt.show()
