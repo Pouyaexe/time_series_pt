@@ -11,4 +11,9 @@ class BasicNN(nn.Module):
     def __init__(self) -> None:
         super().__init__()
         self.w00 = nn.Parameter(torch.tensor(1.7), requires_grad=False)
+        self.b00 = nn.Parameter(torch.tensor(-0.85), requires_grad=False)
+        self.w01 = nn.Parameter(torch.tensor(-0.85), requires_grad=False)
         
+        self.w10 = nn.Parameter(torch.tensor(-0.85), requires_grad=False)
+        self.b10 = nn.Parameter(torch.tensor(-0.85), requires_grad=False)
+        self.w11 = nn.Parameter(torch.tensor(-0.85), requires_grad=False)
