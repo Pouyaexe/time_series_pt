@@ -61,6 +61,9 @@ for epocs in range(100):
         
         loss = (output_i - label_i) ** 2
         
+        loss.backward()
+        back
+        
         
 sns.set(style="whitegrid")
 sns.lineplot(x=input_doses, y=output_values.detach(), color="green", linewidth=2.5)
