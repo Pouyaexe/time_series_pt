@@ -47,6 +47,15 @@ model = BasicNN()
 
 output_values = model(input_doses)
 
+
+optimizer = SGD(model.parameters(), lr=0.1)
+print(f"Final bias, bf opt:{model.final_bias.data}")
+
+for epocs in range(100):
+    total_loss = 0
+    for iteration in range(len(inputs)):
+        pass
+
 sns.set(style="whitegrid")
 sns.lineplot(x=input_doses, y=output_values.detach(), color="green", linewidth=2.5)
 
