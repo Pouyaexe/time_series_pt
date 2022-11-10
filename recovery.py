@@ -62,7 +62,8 @@ for epocs in range(100):
         loss = (output_i - label_i) ** 2
         
         loss.backward()
-        back
+        
+        total_loss += float(loss)
         
         
 sns.set(style="whitegrid")
