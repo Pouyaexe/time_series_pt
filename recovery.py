@@ -66,6 +66,7 @@ for epoch in range(100):
         total_loss += float(loss)
     if total_loss < 0.0001:
         print(f"Num steps: {epoch}")
+        break
         
         
 sns.set(style="whitegrid")
