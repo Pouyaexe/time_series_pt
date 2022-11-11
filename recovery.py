@@ -51,7 +51,7 @@ output_values = model(input_doses)
 optimizer = SGD(model.parameters(), lr=0.1)
 print(f"Final bias, bf opt:{model.final_bias.data}")
 
-for epocs in range(100):
+for epoch in range(100):
     total_loss = 0
     for iteration in range(len(inputs)):
         input_i = inputs[iteration]
@@ -64,6 +64,8 @@ for epocs in range(100):
         loss.backward()
         
         total_loss += float(loss)
+    if total_loss < 0.0001:
+        print(f"Num steps: {epoch}")
         
         
 sns.set(style="whitegrid")
