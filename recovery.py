@@ -66,7 +66,8 @@ for epoch in range(100):
     if total_loss < 0.0001:
         print(f"Num steps: {epoch}")
         break
-        
+    
+    
         
 sns.set(style="whitegrid")
 sns.lineplot(x=input_doses, y=output_values.detach(), color="green", linewidth=2.5)
