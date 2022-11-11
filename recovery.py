@@ -69,6 +69,8 @@ for epoch in range(100):
     
     optimizer.step()
     optimizer.zero_grad()
+    
+    
         
 sns.set(style="whitegrid")
 sns.lineplot(x=input_doses, y=output_values.detach(), color="green", linewidth=2.5)
