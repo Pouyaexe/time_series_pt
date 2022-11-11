@@ -40,12 +40,11 @@ class BasicNN(nn.Module):
 input_doses = torch.linspace(start=0, end=1, steps=11)
 
 inputs = torch.tensor([0.0, 0.5, 1.0])
-labels = torch.tensor([0., 1., 0.])
+labels = torch.tensor([0.0, 1.0, 0.0])
 
 model = BasicNN()
 
-output_values = model(input_doses)
-
+initial_values = model(input_doses)
 
 optimizer = SGD(model.parameters(), lr=0.1)
 print(f"Final bias, bf opt:{model.final_bias.data}")
@@ -57,23 +56,38 @@ for epoch in range(100):
         label_i = labels[iteration]
 
         output_i = model(input_i)
-        
+
         loss = (output_i - label_i) ** 2
-        
+
         loss.backward()
-        
+
         total_loss += float(loss)
     if total_loss < 0.0001:
         print(f"Num steps: {epoch}")
         break
-    
+
     optimizer.step()
     optimizer.zero_grad()
-    
-    
-        
+
+    print(f"Step: {epoch} | Final Bias: {model.final_bias.data} \n")
+
+
+output_values = model(input_doses)
+
 sns.set(style="whitegrid")
-sns.lineplot(x=input_doses, y=output_values.detach(), color="green", linewidth=2.5)
+
+sns.lineplot(
+    x=input_doses,
+    y=output_values.detach(),
+    color="green",
+    linewidth=2.5,
+)
+sns.lineplot(
+    x=input_doses,
+    y=initial_values.detach(),
+    color="red",
+    linewidth=2.5,
+)
 
 plt.ylabel("Efc.")
 plt.xlabel("Dose")
