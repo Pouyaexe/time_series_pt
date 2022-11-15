@@ -77,6 +77,7 @@ def line_to_tensor(line):
     return tensor
 
 
+
 def random_training_example(category_lines, all_categories):
     def random_choice(a):
         random_idx = random.randint(0, len(a) - 1)
