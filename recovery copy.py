@@ -5,6 +5,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.optim import SGD
 
+import lightning as L
 
 class BasicNN(nn.Module):
     def __init__(self) -> None:
