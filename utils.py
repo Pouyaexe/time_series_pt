@@ -89,7 +89,6 @@ def random_training_example(category_lines, all_categories):
     line_tensor = line_to_tensor(line)
     return category, line, category_tensor, line_tensor
 
-
 if __name__ == "__main__":
     print(ALL_LETTERS)
     print(unicode_to_ascii("Ślusàrski"))
