@@ -77,6 +77,7 @@ def line_to_tensor(line):
     return tensor
 
 
+
 def random_training_example(category_lines, all_categories):
     def random_choice(a):
         random_idx = random.randint(0, len(a) - 1)
@@ -87,7 +88,6 @@ def random_training_example(category_lines, all_categories):
     category_tensor = torch.tensor([all_categories.index(category)], dtype=torch.long)
     line_tensor = line_to_tensor(line)
     return category, line, category_tensor, line_tensor
-
 
 if __name__ == "__main__":
     print(ALL_LETTERS)
