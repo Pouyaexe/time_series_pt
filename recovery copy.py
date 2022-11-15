@@ -7,6 +7,7 @@ from torch.optim import SGD
 
 import lightning as L
 
+
 class BasicNN(nn.Module):
     def __init__(self) -> None:
         super().__init__()
