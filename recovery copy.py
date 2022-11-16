@@ -83,6 +83,8 @@ trainer.fit(model, dataloader)
 print(model.final_bias.data)
 
 
+output_values = model(input_doses)
+
 sns.set(style="whitegrid")
 
 sns.lineplot(
