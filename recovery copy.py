@@ -47,6 +47,8 @@ class BasicLightning(L.LightningModule):
         input_i, label_i = batch #Unpack the batch wich is (input, label)
         output_i = self.forward(input_i) #Forward pass
         loss = (output_i-label_i)**2 #Compute the loss (MSE)
+        return loss 
+    
 
 
 input_doses = torch.linspace(start=0, end=1, steps=11)
