@@ -8,7 +8,8 @@ from torch.optim import SGD
 import lightning as L
 from torch.utils.data import TensorDataset, dataloader
 
-class BasicNN(nn.Module):
+
+class BasicLightning(L.LightningModule):
     def __init__(self) -> None:
         super().__init__()
         self.w00 = nn.Parameter(torch.tensor(1.7), requires_grad=False)
@@ -20,7 +21,8 @@ class BasicNN(nn.Module):
         self.w11 = nn.Parameter(torch.tensor(2.7), requires_grad=False)
 
         self.final_bias = nn.Parameter(torch.tensor(0.0), requires_grad=True)
-
+        self.learning_rate = 0.01 
+        
     def forward(self, input):
         input_to_top_relu = input * self.w00 + self.b00
         top_relu_output = F.relu(input_to_top_relu)
@@ -44,9 +46,9 @@ input_doses = torch.linspace(start=0, end=1, steps=11)
 inputs = torch.tensor([0.0, 0.5, 1.0])
 labels = torch.tensor([0.0, 1.0, 0.0])
 
-model = BasicNN()
+model = BasicLightning()
 
-initial_values = model(input_doses)
+output_values = model(input_doses)
 
 optimizer = SGD(model.parameters(), lr=0.1)
 print(f"Final bias, bf opt:{model.final_bias.data}")
