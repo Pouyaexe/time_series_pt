@@ -64,6 +64,8 @@ dataset = TensorDataset(inputs, labels)
 dataloader = DataLoader(dataset)
 
 output_values = model(input_doses)
+trainer = L.Trainer(max_epochs=34)
+trainer.fit(model, dataloader)
 
 sns.set(style="whitegrid")
 
