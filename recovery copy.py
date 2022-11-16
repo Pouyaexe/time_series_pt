@@ -77,7 +77,12 @@ new_lr = lr_find_result.suggestion() # This will return the best learning rate
 print(f"The best learning rate is:  {new_lr:.5f}") # Print the best learning rate :.5f means 5 digits after the decimal point
 model.learning_rate = new_lr # Set the learning rate of the model to the best learning rate
 
-# 
+# Train the model with the best learning rate
+trainer.fit(model, dataloader)
+
+
+
+
 sns.set(style="whitegrid")
 
 sns.lineplot(
