@@ -54,11 +54,11 @@ input_doses = torch.linspace(start=0, end=1, steps=11)
 inputs = torch.tensor([0.0, 0.5, 1.0])
 labels = torch.tensor([0.0, 1.0, 0.0])
 
+dataset = TensorDataset(inputs, labels)
+dataloader = DataLoader(dataset)
 
 model = BasicLightning()
 
-dataset = TensorDataset(inputs, labels)
-dataloader = DataLoader(dataset)
 trainer = L.Trainer(max_epochs=34)
 
 lr_find_result = trainer.tuner.lr_find(
