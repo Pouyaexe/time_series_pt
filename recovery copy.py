@@ -57,8 +57,6 @@ model = BasicLightning()
 inputs = torch.tensor([0.0, 0.5, 1.0])
 labels = torch.tensor([0.0, 1.0, 0.0])
 
-pretrain_output_values = model(input_doses)
-
 dataset = TensorDataset(inputs, labels)
 dataloader = DataLoader(dataset)
 
@@ -91,12 +89,6 @@ sns.lineplot(
     x=input_doses,
     y=output_values.detach(),
     color="green",
-    linewidth=2.5,
-)
-sns.lineplot(
-    x=input_doses,
-    y=pretrain_output_values.detach(),
-    color="red",
     linewidth=2.5,
 )
 
