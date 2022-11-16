@@ -52,6 +52,7 @@ class BasicLightning(L.LightningModule):
 model = BasicLightning()
 
 input_doses = torch.linspace(start=0, end=1, steps=11)
+
 inputs = torch.tensor([0.0, 0.5, 1.0])
 labels = torch.tensor([0.0, 1.0, 0.0])
 
