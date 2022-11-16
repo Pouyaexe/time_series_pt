@@ -6,7 +6,7 @@ import torch.nn.functional as F
 from torch.optim import SGD
 
 import lightning as L
-
+from torch.utils.data import TensorDataset, dataloader
 
 class BasicNN(nn.Module):
     def __init__(self) -> None:
