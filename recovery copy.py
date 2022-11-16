@@ -6,7 +6,7 @@ import torch.nn.functional as F
 from torch.optim import SGD
 
 import lightning as L
-from torch.utils.data import TensorDataset, dataloader
+from torch.utils.data import TensorDataset, DataLoader
 
 
 class BasicLightning(L.LightningModule):
@@ -40,42 +40,26 @@ class BasicLightning(L.LightningModule):
         output = F.relu(input_to_final_relu)
 
         return output
+    def configure_optimizers(self):
+        return SGD(self.parameters(), lr=self.learning_rate)
+    
+    def training_step(self,batch, batch_idx):
+        input_i, label_i = batch #Unpack the batch wich is (input, label)
+        output_i = self.forward(input_i) #Forward pass
+        loss = (output_i-label_i)**2 #Compute the loss (MSE)
 
 
 input_doses = torch.linspace(start=0, end=1, steps=11)
 
+
+model = BasicLightning()
 inputs = torch.tensor([0.0, 0.5, 1.0])
 labels = torch.tensor([0.0, 1.0, 0.0])
 
-model = BasicLightning()
+pretrain_output_values = model(input_doses)
 
-output_values = model(input_doses)
-
-optimizer = SGD(model.parameters(), lr=0.1)
-print(f"Final bias, bf opt:{model.final_bias.data}")
-
-for epoch in range(100):
-    total_loss = 0
-    for iteration in range(len(inputs)):
-        input_i = inputs[iteration]
-        label_i = labels[iteration]
-
-        output_i = model(input_i)
-
-        loss = (output_i - label_i) ** 2
-
-        loss.backward()
-
-        total_loss += float(loss)
-    if total_loss < 0.0001:
-        print(f"Num steps: {epoch}")
-        break
-
-    optimizer.step()
-    optimizer.zero_grad()
-
-    print(f"Step: {epoch} | Final Bias: {model.final_bias.data} \n")
-
+dataset = TensorDataset(inputs, labels)
+dataloader = DataLoader(dataset)
 
 output_values = model(input_doses)
 
@@ -89,7 +73,7 @@ sns.lineplot(
 )
 sns.lineplot(
     x=input_doses,
-    y=initial_values.detach(),
+    y=pretrain_output_values.detach(),
     color="red",
     linewidth=2.5,
 )
