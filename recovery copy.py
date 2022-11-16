@@ -60,7 +60,7 @@ dataset = TensorDataset(inputs, labels)
 dataloader = DataLoader(dataset)
 
 
-trainer = L.Trainer(max_epochs=34)
+trainer = L.Trainer(max_epochs=20)
 
 lr_find_result = trainer.tuner.lr_find(
     model,
