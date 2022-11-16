@@ -65,7 +65,7 @@ lr_find_result = trainer.tuner.lr_find(
     model,
     dataloader,
     min_lr=0.001,
-    max_lr=1.0,
+    max_lr=10.0,
     early_stop_threshold=None,
 ) # This will run the LR finder to find the best learning rate
 
