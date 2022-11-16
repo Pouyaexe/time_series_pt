@@ -65,7 +65,8 @@ dataloader = DataLoader(dataset)
 
 output_values = model(input_doses)
 trainer = L.Trainer(max_epochs=34)
-trainer.fit(model, dataloader)
+
+lr_find_result = trainer.tuner.lr_find(model, dataloader, min_lr=0.0001, max_lr=0.1, num_training=100)
 
 sns.set(style="whitegrid")
 
