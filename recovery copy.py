@@ -23,7 +23,6 @@ class BasicLightning(L.LightningModule):
         self.final_bias = nn.Parameter(torch.tensor(0.0), requires_grad=True)
         self.learning_rate = 0.01  # The value will change over the time by the Lightning and 0.01 is just a placeholder!
 
-
     def forward(self, input):
         input_to_top_relu = input * self.w00 + self.b00
         top_relu_output = F.relu(input_to_top_relu)
@@ -40,15 +39,15 @@ class BasicLightning(L.LightningModule):
         output = F.relu(input_to_final_relu)
 
         return output
+
     def configure_optimizers(self):
         return SGD(self.parameters(), lr=self.learning_rate)
-    
-    def training_step(self,batch, batch_idx):
-        input_i, label_i = batch #Unpack the batch wich is (input, label)
-        output_i = self.forward(input_i) #Forward pass
-        loss = (output_i-label_i)**2 #Compute the loss (MSE)
-        return loss 
-    
+
+    def training_step(self, batch, batch_idx):
+        input_i, label_i = batch  # Unpack the batch wich is (input, label)
+        output_i = self.forward(input_i)  # Forward pass
+        loss = (output_i - label_i) ** 2  # Compute the loss (MSE)
+        return loss
 
 
 input_doses = torch.linspace(start=0, end=1, steps=11)
@@ -66,7 +65,13 @@ dataloader = DataLoader(dataset)
 output_values = model(input_doses)
 trainer = L.Trainer(max_epochs=34)
 
-lr_find_result = trainer.tuner.lr_find(model, dataloader, min_lr=0.0001, max_lr=0.1, num_training=100)
+lr_find_result = trainer.tuner.lr_find(
+    model,
+    dataloader,
+    min_lr=0.0001,
+    max_lr=1.0,
+    early_stop_threshold=None,
+)
 
 sns.set(style="whitegrid")
 
