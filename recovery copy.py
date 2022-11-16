@@ -73,6 +73,9 @@ lr_find_result = trainer.tuner.lr_find(
     early_stop_threshold=None,
 ) # This will run the LR finder to find the best learning rate
 
+new_lr = lr_find_result.suggestion() # This will return the best learning rate 
+print("The best learning rate is: ", new_lr) # Print the best learning rate
+
 sns.set(style="whitegrid")
 
 sns.lineplot(
