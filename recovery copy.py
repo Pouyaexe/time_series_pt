@@ -77,7 +77,6 @@ model.learning_rate = new_lr # Set the learning rate of the model to the best le
 
 # Train the model with the best learning rate
 trainer.fit(model, dataloader)
-
 print(model.final_bias.data)
 
 
