@@ -21,8 +21,9 @@ class BasicLightning(L.LightningModule):
         self.w11 = nn.Parameter(torch.tensor(2.7), requires_grad=False)
 
         self.final_bias = nn.Parameter(torch.tensor(0.0), requires_grad=True)
-        self.learning_rate = 0.01 
-        
+        self.learning_rate = 0.01  # The value will change over the time by the Lightning and 0.01 is just a placeholder!
+
+
     def forward(self, input):
         input_to_top_relu = input * self.w00 + self.b00
         top_relu_output = F.relu(input_to_top_relu)
