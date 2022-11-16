@@ -49,6 +49,7 @@ class BasicLightning(L.LightningModule):
         loss = (output_i - label_i) ** 2  # Compute the loss (MSE)
         return loss
 
+model = BasicLightning()
 
 input_doses = torch.linspace(start=0, end=1, steps=11)
 inputs = torch.tensor([0.0, 0.5, 1.0])
@@ -57,7 +58,6 @@ labels = torch.tensor([0.0, 1.0, 0.0])
 dataset = TensorDataset(inputs, labels)
 dataloader = DataLoader(dataset)
 
-model = BasicLightning()
 
 trainer = L.Trainer(max_epochs=34)
 
