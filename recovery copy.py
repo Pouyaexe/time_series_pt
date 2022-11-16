@@ -59,8 +59,6 @@ model = BasicLightning()
 
 dataset = TensorDataset(inputs, labels)
 dataloader = DataLoader(dataset)
-
-
 trainer = L.Trainer(max_epochs=34)
 
 lr_find_result = trainer.tuner.lr_find(
@@ -78,7 +76,7 @@ print(f"The best learning rate is:  {new_lr:.5f}") # Print the best learning rat
 model.learning_rate = new_lr # Set the learning rate of the model to the best learning rate
 
 # Train the model with the best learning rate
-trainer.fit(model, dataloader)
+trainer.fit(model, train_dataloaders=dataloader)
 print(model.final_bias.data)
 
 
