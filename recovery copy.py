@@ -74,7 +74,7 @@ lr_find_result = trainer.tuner.lr_find(
 ) # This will run the LR finder to find the best learning rate
 
 new_lr = lr_find_result.suggestion() # This will return the best learning rate 
-print("The best learning rate is: ", new_lr) # Print the best learning rate
+print(f"The best learning rate is:  {new_lr:.5f}") # Print the best learning rate :.5f means 5 digits after the decimal point
 
 sns.set(style="whitegrid")
 
