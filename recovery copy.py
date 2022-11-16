@@ -59,6 +59,7 @@ labels = torch.tensor([0.0, 1.0, 0.0] * 100)
 dataset = TensorDataset(inputs, labels)
 dataloader = DataLoader(dataset)
 
+model = BasicLightning()
 
 trainer = L.Trainer(max_epochs=20)
 
