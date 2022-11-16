@@ -62,7 +62,7 @@ pretrain_output_values = model(input_doses)
 dataset = TensorDataset(inputs, labels)
 dataloader = DataLoader(dataset)
 
-output_values = model(input_doses)
+
 trainer = L.Trainer(max_epochs=34)
 
 lr_find_result = trainer.tuner.lr_find(
