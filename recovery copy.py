@@ -91,6 +91,7 @@ sns.lineplot(
     y=output_values.detach(),
     color="green",
     linewidth=2.5,
+
 )
 
 plt.ylabel("Efc.")
