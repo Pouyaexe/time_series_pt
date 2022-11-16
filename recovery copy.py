@@ -51,11 +51,11 @@ class BasicLightning(L.LightningModule):
 
 
 input_doses = torch.linspace(start=0, end=1, steps=11)
+inputs = torch.tensor([0.0, 0.5, 1.0])
+labels = torch.tensor([0.0, 1.0, 0.0])
 
 
 model = BasicLightning()
-inputs = torch.tensor([0.0, 0.5, 1.0])
-labels = torch.tensor([0.0, 1.0, 0.0])
 
 dataset = TensorDataset(inputs, labels)
 dataloader = DataLoader(dataset)
