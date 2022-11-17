@@ -61,7 +61,7 @@ dataloader = DataLoader(dataset)
 
 model = BasicLightning()
 
-trainer = L.Trainer(max_epochs=20)
+trainer = L.Trainer(accelerator="mps", devices=1, max_epochs=20)
 
 lr_find_result = trainer.tuner.lr_find(
     model,
