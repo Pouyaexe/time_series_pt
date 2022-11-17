@@ -57,7 +57,7 @@ inputs = torch.tensor([0.0, 0.5, 1.0] * 100)
 labels = torch.tensor([0.0, 1.0, 0.0] * 100)
 
 dataset = TensorDataset(inputs, labels)
-dataloader = DataLoader(dataset, num_workers=8)
+dataloader = DataLoader(dataset)
 
 model = BasicLightning()
 
