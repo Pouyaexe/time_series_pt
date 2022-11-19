@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+import torch.nn.functional as F #Used for activation functions like ReLU
 from torch.optim import SGD
 
 import lightning as L
