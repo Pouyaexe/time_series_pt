@@ -56,6 +56,11 @@ input_doses = torch.linspace(start=0, end=1, steps=11)
 inputs = torch.tensor([0.0, 0.5, 1.0] * 100)
 labels = torch.tensor([0.0, 1.0, 0.0] * 100)
 
+import platform
+
+# should print "arm"
+print(platform.processor())
+
 dataset = TensorDataset(inputs, labels)
 dataloader = DataLoader(dataset)
 
