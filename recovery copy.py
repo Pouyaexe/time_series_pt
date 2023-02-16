@@ -8,7 +8,6 @@ from torch.optim import SGD
 import lightning as L
 from torch.utils.data import TensorDataset, DataLoader
 
-
 class BasicLightning(L.LightningModule):
     def __init__(self) -> None:
         super().__init__()
